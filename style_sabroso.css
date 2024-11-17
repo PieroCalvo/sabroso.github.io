@@ -1,0 +1,501 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: darkred; /* Fondo rojo vivo */
+}
+
+/* Video y logo */
+.video-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+/* Flecha de scroll */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+}
+
+/* Estilos de la franja negra y la transición del logo */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0); /* Transparente al inicio */
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+/* Opacidad y tamaño del logo en el centro de la franja negra */
+.navbar-logo img {
+    width: 70px;
+    height: auto;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Efectos de opacidad para el scroll */
+.scrolled .navbar {
+    background-color: rgba(0, 0, 0, 0.85); /* Se oscurece al hacer scroll */
+}
+
+.scrolled .navbar-logo img {
+    opacity: 1; /* Aparece al hacer scroll */
+    transform: scale(1.2); /* Más grande que el logo en el video */
+}
+
+/* Íconos de teléfono y WhatsApp */
+.nav-icon {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.phone-icon {
+    background-color: #333;
+}
+
+.whatsapp-icon {
+    background-color: #25D366;
+}
+
+/* Botones de navegación de secciones en el centro */
+.nav-sections {
+    display: flex;
+    align-items: center;
+    gap: 120px; /* Separación entre botones */
+    flex-grow: 1;
+    justify-content: center; /* Centrar el logo y botones */
+}
+
+.nav-btn {
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: yellow;
+    color: black;
+}
+
+/* Efecto de desplazamiento en las secciones */
+.sections-wrapper {
+    padding: 20px;
+    transition: transform 0.3s ease; /* Suavidad en el desplazamiento desde la izquierda */
+    transform: translateX(50%); /* Posición inicial desde la izquierda */
+}
+
+section {
+    margin-bottom: 40px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+h2 {
+    font-size: 2rem;
+    color: black;
+}
+
+/* Contenedores con imágenes cuadradas */
+.items-container {
+    display: flex; /* Usar Flexbox para el diseño */
+    flex-wrap: wrap; /* Permitir que los items se muevan a la siguiente línea si es necesario */
+    justify-content: center; /* Centrar los items horizontalmente */
+    margin: 20px; /* Margen alrededor del contenedor */
+}
+
+/* Estilo de cada item */
+.item {
+    text-align: center; /* Centrar el texto dentro del contenedor */
+    margin: 20px; /* Espacio entre los items */
+    border: 1px solid #ccc; /* Bordes para cada item */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno */
+    background-color: #ffc107; /* Color amarillo pollería */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 235px; /* Ancho fijo, puedes ajustar según sea necesario */
+}
+
+.item img {
+    width: 100%;
+    height: 250px; /* Tamaño cuadrado para las imágenes */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: bold; /* Pone el precio en negrita */
+    margin: 10px 0; /* Margen arriba y abajo del precio */
+}
+
+/* Estilo del botón */
+.add-btn {
+    width: 100%; /* Botón ocupa el ancho completo del contenedor */
+    padding: 10px; /* Espaciado interno */
+    background-color: #ff9800; /* Color de fondo naranja */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+    font-weight: bold; /* Negrita para hacer el texto más atractivo */
+}
+
+.add-btn:hover {
+    background-color: #e68900; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar tamaño al pasar el mouse */
+}
+
+.item h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Pie de página */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.items-slider {
+    display: flex;
+    transition: transform 0.5s ease; /* Transición suave */
+}
+
+.item {
+    flex: 0 0 auto; 
+    margin: 10px; /* Espacio entre los items */
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 165, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* Asegura que los botones estén por encima de otros elementos */
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+/* Efecto hover */
+.slider-btn:hover {
+    background-color: rgba(255, 140, 0, 1); /* Color más oscuro al pasar el cursor */
+}
+
+/* Estilo para el botón de carrito */
+.cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 165, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    z-index: 100; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.cart-btn:hover {
+    background-color: rgba(255, 140, 0, 0.8);
+}
+
+/* Estilo para el panel del carrito */
+.cart {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Oculto fuera de la pantalla */
+    width: 300px;
+    height: 100%;
+    background-color: #f9f9f9; /* Color de fondo claro */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease; /* Transición suave */
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto; /* Permitir scroll vertical */
+}
+
+/* Muestra el carrito cuando tiene la clase 'visible' */
+.cart.visible {
+    right: 0; /* Muestra el carrito */
+}
+
+/* Título del panel del carrito */
+.cart-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff9800; /* Color del título */
+    margin-bottom: 20px;
+    text-align: center; /* Centrar el título */
+}
+
+/* Elementos individuales en el carrito */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+/* Nombre y precio del item */
+.cart-item-name {
+    font-size: 1.2rem;
+    color: black;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Fuente más atractiva */
+    font-weight: bold; /* Negrita para destacar */
+}
+
+.cart-item-price {
+    color: #ff9800; /* Color destacado para el precio */
+    font-weight: bold;
+}
+
+/* Total del carrito */
+.cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: black;
+    text-align: center;
+}
+
+/* Estilo para el botón de checkout */
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff9800; /* Color del botón de checkout */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Negrita para hacer el texto más atractivo */
+}
+
+.checkout-btn:hover {
+    background-color: #e68900; /* Color de fondo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar tamaño al pasar el mouse */
+}
+
+/* Estilo para el botón de cerrar carrito */
+.close-cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-cart:hover {
+    color: #ff9800; /* Color al pasar el mouse */
+}
+
+/* Estilo para el botón de cerrar (duplicado, eliminar) */
+#close-cart-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.remove-item {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    color: orange; /* Color del icono */
+    font-size: 1.5rem; /* Tamaño del icono */
+    transition: color 0.3s;
+}
+
+.remove-item:hover {
+    color: #e68900; /* Color más oscuro al pasar el mouse */
+}
+
+.details-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples filas si es necesario */
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #ffebcc;
+    border: 1px solid #ff9800;
+    margin: 20px 0;
+    border-radius: 10px;
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.detail-item {
+    text-align: center;
+    flex: 1 1 200px; /* Mínimo de 200px, permite ajuste responsivo */
+    padding: 10px;
+    max-width: 250px; /* Tamaño máximo para evitar elementos demasiado anchos en pantallas grandes */
+}
+
+.detail-icon {
+    font-size: 2rem;
+    color: #ff9800;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #ff9800;
+    margin: 10px 0;
+}
+
+p {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+
+    .details-section {
+        flex-direction: column; /* Cambia a una sola columna en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .items-container {
+        grid-template-columns: 1fr;
+    }
+
+    .item {
+        width: 90%;
+    }
+
+    .nav-btn {
+        padding: 8px 15px;
+    }
+    .nav-sections {
+        display: none; /* Ocultar los botones en pantallas delgadas */
+    }
+
+    .navbar {
+        justify-content: space-between; /* Reorganizar los íconos restantes */
+    }
+
+}
+
